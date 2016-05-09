@@ -149,23 +149,31 @@ create table eventos (
 );
 
 insert into eventos (id_participante_casa,id_participante_visitante,id_competicion,fecha_hora,resultado_casa , resultado_visitante)
-    values(2,1,1,'2016-04-02 20:30:00'::timestamp, 1, 2),
-          (3,4,1,'2016-05-06 20:30:00'::timestamp, NULL, NULL),
+    values(2,1,1,'2016-06-02 20:30:00'::timestamp, NULL, NULL),
+          (3,4,1,'2016-05-09 20:30:00'::timestamp, NULL, NULL),
           (2,3,1,'2016-06-05 20:30:00'::timestamp, NULL, NULL),
-          (5,6,3,'2016-04-05 20:30:00'::timestamp, 88,80);
+          (5,6,3,'2016-06-05 20:30:00'::timestamp, NULL, NULL),
+          (3,4,1,'2016-07-09 20:30:00'::timestamp, NULL, NULL),
+          (2,3,1,'2016-07-05 20:30:00'::timestamp, NULL, NULL),
+          (5,6,3,'2016-07-05 20:30:00'::timestamp, NULL, NULL),
+          (3,4,1,'2016-08-09 20:30:00'::timestamp, NULL, NULL),
+          (2,3,1,'2016-09-05 20:30:00'::timestamp, NULL, NULL),
+          (5,6,3,'2016-09-05 20:30:00'::timestamp, NULL, NULL);
 
 
 drop view if exists v_eventos_participantes cascade;
 
 create view v_eventos_participantes as 
 select eventos.id as id , par1.nombre as participante_casa, par2.nombre as participante_visitante, 
-resultado_casa, resultado_visitante, fecha_hora as fecha_completa ,  to_char(fecha_hora, 'HH24:MI DD/MM/YYYY') as fecha_hora, comp.nombre as competicion
+resultado_casa, resultado_visitante,fecha_hora as hora_evento, to_char(fecha_hora, 'HH24:MI DD/MM/YYYY') as fecha_hora, comp.nombre as competicion
     from eventos join participantes as par1 
     on  id_participante_casa = par1.id 
     join participantes as par2 
     on  id_participante_visitante = par2.id 
     join competiciones as comp 
-    on id_competicion = comp.id;
+    on id_competicion = comp.id
+    where eventos.activado = TRUE
+    order by fecha_hora;
 
 
 /***********************************************************

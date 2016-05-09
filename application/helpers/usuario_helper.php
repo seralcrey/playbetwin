@@ -40,11 +40,9 @@ function enlaces() {
 
     $out = "";
 
-    if ($CI->Usuario->logueado()):
-        $out .= "<link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>";
-        $out .= link_tag('css/estilo_princiapal.css');
-        $out .= '<script src="' . base_url() . 'js/header.js" type="text/javascript"></script>';
-    endif;
+    $out .= "<link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>";
+    $out .= link_tag('css/estilo_princiapal.css');
+    $out .= '<script src="' . base_url() . 'js/header.js" type="text/javascript"></script>';
 
     return $out;
 }
@@ -82,7 +80,7 @@ function barra_administrador(){
                 $out .= anchor('/deportes/index/', 'Deportes' , '');
             $out .= "</div>";
             $out .= "<div>";
-                $out .= anchor('/eventos/administracion/', 'Eventos' , '');
+                $out .= anchor('/eventos/index/', 'Eventos' , '');
             $out .= "</div>";
             $out .= "<div>";
                 $out .= anchor('/participantes/index/', 'Participantes' , '');

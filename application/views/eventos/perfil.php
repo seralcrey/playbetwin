@@ -7,7 +7,14 @@
 </h1>
 
 <h2><?= $competicion ?></h2>
-<?= apostar($fecha_hora, $resultado_casa, $resultado_visitante) ?>
+<div>
+    <p class="marcador"> <?= $fecha_hora ?> </p>
+    <div class="apostar">
+        <?= anchor('/eventos/apostar/1', '1', '') ?>
+        <?=anchor('/eventos/apostar/X', 'X', '')?>
+        <?=anchor('/eventos/apostar/1', '2', '')?>
+    </div>
+</div>
 
 
 

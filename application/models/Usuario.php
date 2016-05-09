@@ -9,7 +9,8 @@ class Usuario extends CI_Model
 
     public function borrar($id)
     {
-        return $this->db->delete('usuarios', array('id' => $id));
+        return $this->db->query("update participantes set activado=false where id=?", array($id));
+
     }
 
     public function por_id($id)

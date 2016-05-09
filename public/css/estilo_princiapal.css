@@ -111,4 +111,33 @@ nav a {
     box-shadow: 3px 3px 1px black;
 }
 
+.ver_apuestas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.ver_apuestas div {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    width: 30%;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 20px;
+    background: #f7881e;
+    color: white;
+    box-shadow: 3px 3px 1px black;
+}
+
+.ver_apuestas a {
+    color: white;
+    text-decoration: none;
+}
+
+.contenido{
+    border: 1px solid black;
+}

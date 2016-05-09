@@ -1,13 +1,13 @@
 <?php template_set('title', 'Eventos') ?>
 
-<h1>Proximo eventos</h1>
+<h1>Proximos eventos</h1>
 
-<div>
+<div class="ver_apuestas">
     <?php foreach ($filas as $fila): ?>
-        <div>
-            <p class="partido"><?= anchor('/eventos/perfil/' . $fila['id'], $fila['participante_casa'] .
-            " vs " . $fila['participante_visitante'], 'class="partido"')?></p>
-            <p><?= $fila['fecha_hora'] ?></p>
+         <?= anchor('/eventos/perfil/' . $fila['id'], '<div>
+            <p class="partido">' . $fila['participante_casa'] . " vs " . $fila['participante_visitante']. '</p> '
+                 . '<p>' . $fila['fecha_hora'] . '</p>'.
+                 '<p> '. $fila['competicion'] , '') ?>
         </div>
 <?php endforeach ?>
 </div>

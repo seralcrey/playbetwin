@@ -14,7 +14,7 @@
                     ))) ?>
             </header>
             <div>
-                <div>
+                <div class="contenido">
                     <?= $contents ?>
                 </div>
                 <aside>

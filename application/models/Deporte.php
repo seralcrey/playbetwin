@@ -16,8 +16,8 @@ class Deporte extends CI_Model
     
     public function borrar($id)
     {
-        return $this->db->query("delete from deportes where id = ?",
-                                array($id));
+        return $this->db->query(" update deportes set activado=false where id=?", array($id));
+
     }
     
     public function insertar($valores)
