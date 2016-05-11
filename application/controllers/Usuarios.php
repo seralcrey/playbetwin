@@ -37,9 +37,9 @@ class Usuarios extends CI_Controller {
     );
 
     public function login() {
-        if ($this->Usuario->logueado()) {
-            redirect('deportes/index');
-        }
+//        if ($this->Usuario->logueado()) {
+//            redirect('deportes/index');
+//        }
 
         if ($this->input->post('login') !== NULL)
         {

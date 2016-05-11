@@ -192,14 +192,10 @@ create table apuestas (
                     references eventos(id)
                     on delete no action
                     on update cascade,
+    coins           numeric(10)      not null,           
     pronostico      char(1) not null
 );
 
-
-insert into apuestas (id_usuario, id_evento, pronostico)
-    values (1,1,'X'),
-            (2,1,'1'),
-            (3,1,'2');
 
 /********************************************************************
                        Premios y publicidad

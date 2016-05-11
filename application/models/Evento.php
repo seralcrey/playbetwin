@@ -22,4 +22,15 @@ class Evento extends CI_Model
     {
         return $this->db->query(" update eventos set activado=false where id=?", array($id));
     }
+    
+    public function apostar($valores)
+    {
+        return $this->db->insert('apuestas', $valores);
+    }
+    
+    public function ya_apostado($id_usuario, $id_evento){
+        $res = $this->db->query('select * from apuestas where id_usuario = ? and id_evento = ?',
+                                array($id_usuario, $id_evento));
+        return $res->num_rows() > 0 ? $res->row_array() : FALSE;
+    }
 }
