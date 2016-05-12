@@ -145,7 +145,8 @@ create table eventos (
     resultado_casa  numeric(3),                
     resultado_visitante  numeric(3),
     fecha_hora  timestamp not null,
-    activado boolean default true
+    activado boolean default true,
+    pagado   boolean not null default false
 );
 
 insert into eventos (id_participante_casa,id_participante_visitante,id_competicion,fecha_hora,resultado_casa , resultado_visitante)
@@ -165,7 +166,8 @@ drop view if exists v_eventos_participantes cascade;
 
 create view v_eventos_participantes as 
 select eventos.id as id , par1.nombre as participante_casa, par2.nombre as participante_visitante, 
-resultado_casa, resultado_visitante,fecha_hora as hora_evento, to_char(fecha_hora, 'HH24:MI DD/MM/YYYY') as fecha_hora, comp.nombre as competicion
+resultado_casa, resultado_visitante,fecha_hora as hora_evento, to_char(fecha_hora, 'HH24:MI DD/MM/YYYY') as fecha_hora, 
+comp.nombre as competicion, pagado
     from eventos join participantes as par1 
     on  id_participante_casa = par1.id 
     join participantes as par2 

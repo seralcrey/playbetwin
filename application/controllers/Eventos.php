@@ -13,17 +13,28 @@ class Eventos extends CI_Controller {
         if ($id === NULL) {
             redirect('usuarios/login');
         }
-        $id_usuario = $usuario = $this->session->userdata("usuario")['id'];
-        
+        $id_usuario = $this->session->userdata("usuario")['id'];
+        $apostado = $this->Evento->ya_apostado($id_usuario, $id);
         if ($this->input->post('apostar') == TRUE) {
-            if ($this->Evento->ya_apostado($id_usuario, $id) === FALSE) {
+            
+            if ($apostado === FALSE) {
                 $valores = $this->limpiar('apostar', $this->input->post());
                 $valores['id_usuario'] = $id_usuario;
                 $this->Evento->apostar($valores);
+            } else {
+                if ($apostado['pronostico'] == $this->input->post('pronostico')){
+                    $coins = $apostado['coins'] + $this->input->post('coins');
+                    $this->Evento->cambiar_apuesta($coins, $apostado['id']);
+                }
             }
         }
-
+        
         $evento = $this->Evento->por_id($id);
+        if ($apostado !== FALSE){
+            $evento['pronostico'] =$apostado['pronostico']; 
+        } else {
+            $evento['pronostico'] = NULL;
+        }
         $this->template->load('eventos/perfil', $evento);
     }
 

@@ -33,4 +33,8 @@ class Evento extends CI_Model
                                 array($id_usuario, $id_evento));
         return $res->num_rows() > 0 ? $res->row_array() : FALSE;
     }
+    
+    public function cambiar_apuesta($coins, $id){
+        return $this->db->query(" update apuestas set coins=? where id=?", array($coins, $id));
+    }
 }

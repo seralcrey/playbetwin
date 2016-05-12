@@ -77,3 +77,20 @@ function crear_evento(){
     
     return $out;
 }
+
+function mostar_apuestas($pronosctico = NULL){
+    $CI =& get_instance();
+    $out = "";
+    if ($pronosctico !== NULL){
+//        var_dump($pronosctico); die();
+        $out  .= '<p '. ($pronosctico === '1' ? 'class="si"' : 'class="no"') .'>1</p>';
+        $out  .= '<p '. ($pronosctico === 'X' ? 'class="si"' : 'class="no"') .'>X</p>';
+        $out  .= '<p '. ($pronosctico === '2' ? 'class="si"' : 'class="no"') .'>2</p>';
+    } else {
+        $out  .= '<p class="si">1</p>';
+        $out  .= '<p class="si">X</p>';
+        $out  .= '<p class="si">2</p>';
+    }
+    
+    return $out;
+}

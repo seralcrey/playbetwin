@@ -1,7 +1,7 @@
 $(window).ready(function () {
     apuesta = ""
     
-    $('.apostar').find('p').click(function () {
+    $('.apostar').find('p.si').click(function () {
         apuesta = $(this).text();
         abrirHijo();
     });
@@ -10,7 +10,7 @@ $(window).ready(function () {
 
 function abrirHijo() {
     url = window.location.host
-    ventana = window.open("http://" + url + "/ventanas/ventana_apostar.php", "ventana", "width=500,height=500");
+    ventana = window.open("http://" + url + "/ventanas/ventana_apostar.php", "ventana", "width=300,height=200");
 }
 
 function obtener_cantidad(cantidad) {

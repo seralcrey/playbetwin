@@ -10,9 +10,7 @@
 <div>
     <p class="marcador"> <?= $fecha_hora ?> </p>
     <div class="apostar">
-        <p>1</p>
-        <p>X</p>
-        <p>2</p>
+        <?= mostar_apuestas($pronostico) ?>
     </div>
 </div>
 <script src="<?= base_url()?>js/apostar.js" type="text/javascript"></script>

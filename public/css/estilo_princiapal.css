@@ -108,6 +108,13 @@ nav a {
     background: #f7881e;
     color: white;
     box-shadow: 3px 3px 1px black;
+    cursor:pointer; 
+    cursor: hand
+}
+
+.apostar p.no {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .ver_apuestas{
